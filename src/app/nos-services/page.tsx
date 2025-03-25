@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ServiceCard from '@/components/ui/ServiceCard';
 import ButtonGlow from '@/components/ui/ButtonGlow';
