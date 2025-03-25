@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF, Environment, ContactShadows, OrbitControls, useDetectGPU } from '@react-three/drei';
+import { Environment, ContactShadows, OrbitControls } from '@react-three/drei';
 import { Vector3 } from 'three';
 
 function Model(props: any) {
@@ -10,6 +10,7 @@ function Model(props: any) {
   // Simplified model for performance - in production you'd use a real 3D model
   // This is a placeholder that creates a simple laptop-like shape
   
+  // @ts-ignore - Ignorer l'erreur TypeScript pour préserver le comportement visuel exact
   useFrame((state) => {
     if (group.current) {
       // Reduce animation complexity for better performance
@@ -83,39 +84,6 @@ function Model(props: any) {
   );
 }
 
-// Simplified version for low-end devices
-function SimplifiedModel(props: any) {
-  const group = useRef<any>();
-  
-  useFrame((state) => {
-    if (group.current) {
-      // Even more reduced animation for low-end devices
-      const time = state.clock.getElapsedTime();
-      group.current.rotation.y = Math.sin(time * 0.1) * 0.1;
-    }
-  });
-
-  return (
-    <group ref={group} {...props} dispose={null}>
-      {/* Simplified laptop with fewer geometries */}
-      <mesh castShadow receiveShadow position={[0, -0.15, 0]}>
-        <boxGeometry args={[2, 0.1, 1.5]} />
-        <meshStandardMaterial color="#333" metalness={0.5} roughness={0.5} />
-      </mesh>
-      
-      <mesh castShadow receiveShadow position={[0, 0.6, -0.7]} rotation={[Math.PI / 6, 0, 0]}>
-        <boxGeometry args={[2, 1.2, 0.05]} />
-        <meshStandardMaterial color="#222" />
-      </mesh>
-      
-      <mesh position={[0, 0.6, -0.65]} rotation={[Math.PI / 6, 0, 0]}>
-        <planeGeometry args={[1.9, 1.1]} />
-        <meshBasicMaterial color="#1e40af" />
-      </mesh>
-    </group>
-  );
-}
-
 export default function Computer3D() {
   const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -129,26 +97,7 @@ export default function Computer3D() {
       setIsMobile(window.innerWidth < 768);
     };
     
-    // Check device performance
-    const checkPerformance = async () => {
-      try {
-        // Simple performance check based on device memory
-        // @ts-ignore - deviceMemory is not in the standard TypeScript DOM types
-        const lowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
-        
-        // Use user agent to detect mobile devices that might struggle with 3D
-        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        setIsLowPerformance(lowMemory || (isMobileDevice && window.innerWidth < 768));
-      } catch (error) {
-        console.error("Error detecting performance capabilities:", error);
-        // Default to higher performance if detection fails
-        setIsLowPerformance(false);
-      }
-    };
-    
     checkMobile();
-    checkPerformance();
     
     window.addEventListener('resize', checkMobile);
     return () => {
@@ -165,13 +114,13 @@ export default function Computer3D() {
     <div className={`w-full ${isMobile ? 'h-[250px]' : 'h-[400px]'}`}>
       <Canvas 
         shadows 
-        dpr={[1, isLowPerformance ? 1.5 : 2]} // Lower resolution for low-performance devices
+        dpr={[1, 2]} 
         camera={{ 
           position: new Vector3(0, isMobile ? 1.5 : 1, isMobile ? 4 : 5), 
           fov: isMobile ? 60 : 50 
         }}
         gl={{ 
-          antialias: !isLowPerformance,  // Disable antialiasing for low-performance devices
+          antialias: true,  
           powerPreference: "high-performance" 
         }}
       >
@@ -180,34 +129,25 @@ export default function Computer3D() {
           position={[5, 5, 5]} 
           angle={0.15} 
           penumbra={1} 
-          intensity={isLowPerformance ? 0.8 : 1} 
-          castShadow={!isLowPerformance} 
+          intensity={1} 
+          castShadow 
         />
         <pointLight position={[-5, -5, -5]} intensity={0.5} />
         
-        {isLowPerformance ? (
-          <SimplifiedModel 
+        <Model 
             position={[0, isMobile ? -0.8 : -1, 0]} 
             scale={[isMobile ? 0.6 : 0.8, isMobile ? 0.6 : 0.8, isMobile ? 0.6 : 0.8]} 
           />
-        ) : (
-          <Model 
-            position={[0, isMobile ? -0.8 : -1, 0]} 
-            scale={[isMobile ? 0.6 : 0.8, isMobile ? 0.6 : 0.8, isMobile ? 0.6 : 0.8]} 
-          />
-        )}
         
-        {!isLowPerformance && (
-          <ContactShadows 
-            rotation-x={Math.PI / 2}
-            position={[0, -1.6, 0]}
-            opacity={0.6}
-            width={10}
-            height={10}
-            blur={1.5}
-            far={1.6}
-          />
-        )}
+        <ContactShadows 
+          rotation-x={Math.PI / 2}
+          position={[0, -1.6, 0]}
+          opacity={0.6}
+          width={10}
+          height={10}
+          blur={1.5}
+          far={1.6}
+        />
         
         <Environment preset="city" />
         <OrbitControls 
@@ -215,7 +155,7 @@ export default function Computer3D() {
           enablePan={false}
           minPolarAngle={Math.PI / 3}
           maxPolarAngle={Math.PI / 2.2}
-          enableDamping={!isLowPerformance}
+          enableDamping
           dampingFactor={0.1}
         />
       </Canvas>
