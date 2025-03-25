@@ -122,6 +122,13 @@ const ContactSection = () => {
     }
   };
 
+  // Wrapper pour le bouton qui n'attend pas de paramètres
+  const handleButtonSubmit = () => {
+    // Créer un faux événement pour satisfaire handleSubmit
+    const fakeEvent = { preventDefault: () => {} } as React.FormEvent;
+    handleSubmit(fakeEvent);
+  };
+
   // Effet de lueur pour les boutons sur mobile
   const glowVariants = {
     initial: { 
@@ -374,7 +381,7 @@ const ContactSection = () => {
                 {/* Bouton d'envoi */}
                 <div className="w-full flex justify-center">
                   <ButtonGlow
-                    onClick={handleSubmit}
+                    onClick={handleButtonSubmit}
                     disabled={formStatus.isSubmitting}
                     variant="primary"
                     size="lg"
