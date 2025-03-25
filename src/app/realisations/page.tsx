@@ -19,7 +19,7 @@ const projects = [
     title: "Clem Detailing",
     category: "Site Web",
     description: "Mise en place d'un système de réservation en ligne pour faciliter la prise de rendez-vous et augmenter le chiffre d'affaire",
-    image: "/services/clem-detailing.png",
+    image: "/public/images/realisations/clem-detailing.png",
     link: "https://clemdetailing.fr/"
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     title: "Classic Auto Vintage",
     category: "Site Web",
     description: "Site e-commerce dédié aux voitures de collection",
-    image: "/services/classic-auto-vintage.png",
+    image: "/public/images/realisations/classic-auto-vintage.png",
     link: "https://classicautovintage.fr/"
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     title: "Publicom 64",
     category: "Site Web",
     description: "Site vitrine pour une agence de communication locale",
-    image: "/services/publicom64.png",
+    image: "/public/images/realisations/publicom64.png",
     link: "https://publicom64.com/"
   },
   {
@@ -43,7 +43,7 @@ const projects = [
     title: "Life Spa",
     category: "Site Web",
     description: "Création d'un site vitrine pour l'ouverture d'un magasin de spas, permettant de présenter les produits et d'attirer de nouveaux clients",
-    image: "/services/lifespa.png",
+    image: "/public/images/realisations/lifespa.png",
     link: "https://lifespa.fr/"
   },
   {
@@ -51,7 +51,7 @@ const projects = [
     title: "Aquarevet",
     category: "Site Web",
     description: "Site vitrine pour un service vétérinaire spécialisé en aquariophilie",
-    image: "/services/aquarevet.png",
+    image: "/public/images/realisations/aquarevet.png",
     link: "https://aquarevet.fr/"
   },
   {
@@ -59,7 +59,7 @@ const projects = [
     title: "Clem Detailing Instagram",
     category: "Social Ads",
     description: "Gestion des réseaux sociaux pour Clem Detailing",
-    image: "/services/clem-detailing-instagram.png",
+    image: "/public/images/realisations/clem-detailing-instagram.png",
     link: "https://www.instagram.com/clem_detailingcar/"
   },
   {
@@ -67,7 +67,7 @@ const projects = [
     title: "Classic Auto Vintage Publicité",
     category: "Visuels",
     description: "Création de panneaux publicitaires pour une entreprise de voitures de collection",
-    image: "/services/classic-auto-vintage-pub.png",
+    image: "/public/images/realisations/classic-auto-vintage-pub.png",
     link: "https://classicautovintage.fr/"
   },
   {
@@ -75,7 +75,7 @@ const projects = [
     title: "Classic Auto Vintage Carte",
     category: "Visuels",
     description: "Création de carte de visite pour Classic Auto Vintage",
-    image: "/services/classic-auto-vintage-carte.png",
+    image: "/public/images/realisations/classic-auto-vintage-carte.png",
     link: "https://classicautovintage.fr/"
   },
   {
@@ -83,7 +83,7 @@ const projects = [
     title: "Clem Detailing Publicité",
     category: "Visuels",
     description: "Conception de panneaux publicitaires pour un service de detailing automobile",
-    image: "/services/clem-detailing-pub.png",
+    image: "/public/images/realisations/clem-detailing-pub.png",
     link: "https://clemdetailing.fr/"
   },
   {
@@ -91,7 +91,7 @@ const projects = [
     title: "PergoLife Logo",
     category: "Visuels",
     description: "Création d'un logo pour l'entreprise PergoLife",
-    image: "/services/pergolife-logo.png",
+    image: "/public/images/realisations/pergolife-logo.png",
     link: "#"
   },
   {
@@ -99,7 +99,7 @@ const projects = [
     title: "VertRénov",
     category: "Visuels",
     description: "Création d'identité visuelle complète pour une entreprise de multiservice",
-    image: "/services/vertrenov.png",
+    image: "/public/images/realisations/vertrenov.png",
     link: "#"
   }
 ];
@@ -121,7 +121,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.15),transparent_70%)]"></div>
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/public/images/grid.svg')] opacity-10"></div>
         
         <div className="container mx-auto px-4 md:px-6 py-12 relative z-10">
           <motion.div 
@@ -140,7 +140,7 @@ export default function Portfolio() {
 
       {/* Portfolio Filter */}
       <section className="py-8 relative">
-        <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-5 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('/public/images/noise.png')] opacity-5 mix-blend-overlay"></div>
         
         <div className="container mx-auto px-4 md:px-6">
           <ScrollAnimation>
@@ -194,7 +194,7 @@ export default function Portfolio() {
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-900 via-purple-900 to-indigo-900"></div>
-        <div className="absolute inset-0 bg-[url('/images/circuit-pattern.svg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/public/images/circuit-pattern.svg')] opacity-10"></div>
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">

@@ -128,7 +128,7 @@ export default function Home() {
         </div>
         
         {/* Grille futuriste */}
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/public/images/grid.svg')] opacity-10"></div>
         
         {/* Light beam effect - Plus prononcé */}
         <div className="absolute inset-0 overflow-hidden">
@@ -174,7 +174,7 @@ export default function Home() {
                   />
                   
                   <p className="text-xl text-blue-100 mb-8 max-w-xl mx-auto lg:mx-0">
-                    Nous concevons des expériences web immersives qui captent l'attention et transforment vos visiteurs en clients fidèles.
+                    Nous concevons des expériences web immersives qui captent l&#39;attention et transforment vos visiteurs en clients fidèles.
                   </p>
                   
                   <motion.div
@@ -379,7 +379,7 @@ export default function Home() {
         {/* Key Metrics - Design plus futuriste */}
         <div className="relative py-16 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-sky-900/50 via-indigo-900/50 to-pink-900/50"></div>
-          <div className="absolute inset-0 bg-[url('/images/circuit-pattern.svg')] opacity-10"></div>
+          <div className="absolute inset-0 bg-[url('/public/images/circuit-pattern.svg')] opacity-10"></div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-white">
@@ -464,7 +464,7 @@ export default function Home() {
       
       {/* Services Preview - Design plus immersif */}
       <section id="services" className="py-8 pt-4 md:py-12 bg-gradient-to-b from-gray-900 to-black relative">
-        <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-5 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('/public/images/noise.png')] opacity-5 mix-blend-overlay"></div>
         
         <div className="container mx-auto px-4 md:px-6">
           {isLoaded && (
@@ -492,7 +492,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src="/images/services/service-web.jpg" 
+                      src="/public/images/service-web.jpg" 
                       alt="Création de Sites Web" 
                       width={600} 
                       height={400}
@@ -553,7 +553,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src="/images/services/service-ecommerce.jpg" 
+                      src="/public/images/service-ecommerce.jpg" 
                       alt="E-commerce" 
                       width={600} 
                       height={400}
@@ -574,7 +574,7 @@ export default function Home() {
                   </div>
                   <div className="p-6">
                     <p className="text-gray-400 mb-4">
-                      Boutiques en ligne performantes avec gestion des stocks, paiements sécurisés et expérience d'achat optimisée.
+                      Boutiques en ligne performantes avec gestion des stocks, paiements sécurisés et expérience d&#39;achat optimisée.
                     </p>
                     <motion.div
                       whileHover={{ x: 5 }}
@@ -614,7 +614,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src="/images/services/service-marketing.jpg" 
+                      src="/public/images/service-marketing.jpg" 
                       alt="Marketing Digital" 
                       width={600} 
                       height={400}
@@ -753,7 +753,7 @@ export default function Home() {
               ))}
             </div>
             
-            <div className="absolute inset-0 bg-[url('/images/circuit-pattern.svg')] opacity-10 mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-[url('/public/images/circuit-pattern.svg')] opacity-10 mix-blend-overlay"></div>
           </>
         )}
         

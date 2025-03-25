@@ -3,17 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true,
-    formats: ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-  },
-  experimental: {
-    optimizeCss: true,
-    scrollRestoration: true,
+    domains: ['localhost', 'leconnecteur.vercel.app'],
   },
   poweredByHeader: false,
   compiler: {
