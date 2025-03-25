@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+// Import direct de l'image du logo
+import logoImage from '../../../public/images/logossfond.png';
+
 const Footer = () => {
   const [email, setEmail] = useState('');
   
@@ -35,13 +38,13 @@ const Footer = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link href="/" className="inline-block mb-4">
+              <Link href="/" className="block mb-6">
                 <Image 
-                  src="/images/logossfond.png" 
+                  src={logoImage} 
                   alt="Le Connecteur Digital" 
                   width={180} 
-                  height={48} 
-                  className="h-14 w-auto"
+                  height={50} 
+                  className="h-10 w-auto"
                 />
               </Link>
             </motion.div>
