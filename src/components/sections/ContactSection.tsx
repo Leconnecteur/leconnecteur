@@ -28,7 +28,7 @@ const ContactSection = () => {
   const [formStatus, setFormStatus] = useState({
     isSubmitting: false,
     isSubmitted: false,
-    error: null
+    error: null as string | null
   });
   
   const [activeField, setActiveField] = useState<string | null>(null);
