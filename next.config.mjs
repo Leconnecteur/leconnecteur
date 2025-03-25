@@ -30,8 +30,13 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
+  // Utiliser une URL absolue pour les assets statiques
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://leconnecteur.vercel.app' : '',
+  // Utiliser un chemin de base pour tous les chemins relatifs
+  basePath: '',
+  // Désactiver la compression pour éviter les problèmes avec les images
+  compress: false,
   poweredByHeader: false,
-  compress: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
