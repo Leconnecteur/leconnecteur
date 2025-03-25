@@ -1,46 +1,55 @@
-# Le Connecteur Digital
+<<<<<<< HEAD
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Site web moderne pour une agence digitale, développé avec Next.js et Tailwind CSS.
+## Getting Started
 
-## À propos du projet
-
-Le Connecteur Digital est une agence spécialisée dans la création de sites web professionnels, le social ads, la création de visuels et le community management.
-
-## Fonctionnalités
-
-- Design moderne avec animations et effets visuels
-- Interface responsive et interactive
-- Sections Services, Réalisations et Contact
-- Chatbot interactif avec réponses contextuelles
-
-## Technologies utilisées
-
-- [Next.js](https://nextjs.org) - Framework React
-- [Tailwind CSS](https://tailwindcss.com) - Framework CSS utilitaire
-- [Framer Motion](https://www.framer.com/motion/) - Bibliothèque d'animations
-- [Three.js](https://threejs.org) - Bibliothèque 3D
-
-## Démarrage rapide
+First, run the development server:
 
 ```bash
-# Installation des dépendances
-npm install
-
-# Lancement du serveur de développement
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le résultat.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Déploiement
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Le déploiement de l'application peut être effectué sur la plateforme Vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Ressources supplémentaires
+## Learn More
 
-Pour en savoir plus sur les technologies utilisées, vous pouvez consulter les ressources suivantes :
+To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - documentation officielle de Next.js
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs) - documentation officielle de Tailwind CSS
-- [Framer Motion Documentation](https://www.framer.com/motion/) - documentation officielle de Framer Motion
-- [Three.js Documentation](https://threejs.org/docs) - documentation officielle de Three.js
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+=======
+## Hi there 👋
+
+<!--
+**Leconnecteur/leconnecteur** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
+>>>>>>> 7d8df54e8ba748522880a3fb68b56fa2cccde69e

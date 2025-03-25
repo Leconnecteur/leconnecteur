@@ -6,7 +6,7 @@ import { useGLTF, Environment, ContactShadows, OrbitControls, useDetectGPU } fro
 import { Vector3 } from 'three';
 
 function Model(props: any) {
-  const group = useRef<any>(null);
+  const group = useRef<any>();
   // Simplified model for performance - in production you'd use a real 3D model
   // This is a placeholder that creates a simple laptop-like shape
   
@@ -85,7 +85,7 @@ function Model(props: any) {
 
 // Simplified version for low-end devices
 function SimplifiedModel(props: any) {
-  const group = useRef<any>(null);
+  const group = useRef<any>();
   
   useFrame((state) => {
     if (group.current) {

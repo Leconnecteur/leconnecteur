@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 interface ButtonGlowProps {
   children: React.ReactNode;
   href?: string;
-  onClick?: (...args: any[]) => void;
+  onClick?: () => void;
   className?: string;
   ariaLabel?: string;
   target?: string;

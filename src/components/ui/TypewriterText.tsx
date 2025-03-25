@@ -78,7 +78,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
       transition: {
         duration: 0.8,
         repeat: Infinity,
-        repeatType: "reverse" as const,
+        repeatType: 'reverse',
       },
     },
   };

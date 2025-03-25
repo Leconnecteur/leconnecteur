@@ -233,15 +233,10 @@ export default function Home() {
           <motion.div 
             className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
             initial={{ opacity: 0, y: -10 }}
-            animate={{ 
-              opacity: 1, 
-              y: [0, 8, 0], 
-              transition: { 
-                opacity: { delay: 2, duration: 0.5 },
-                y: { repeat: Infinity, duration: 2 } 
-              } 
-            }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2, duration: 0.5 }}
             whileHover={{ y: 5 }}
+            animate={{ y: [0, 8, 0], transition: { repeat: Infinity, duration: 2 } }}
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 

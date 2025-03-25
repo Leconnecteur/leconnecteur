@@ -39,16 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# Exclude temporarily large files for initial push
-public/assets/images/
-public/assets/videos/
-src/assets/
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.webp
-*.mp4
-*.webm
-*.svg
