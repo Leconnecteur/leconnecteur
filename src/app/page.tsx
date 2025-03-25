@@ -49,11 +49,6 @@ const ContactSection = dynamic(() => import('@/components/sections/ContactSectio
   loading: () => <div className="h-[600px] w-full bg-black animate-pulse"></div>
 });
 
-// Import direct des images
-import serviceWebImage from '../../public/images/service-web.jpg';
-import serviceEcommerceImage from '../../public/images/service-ecommerce.jpg';
-import serviceMarketingImage from '../../public/images/service-marketing.jpg';
-
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -497,7 +492,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src={serviceWebImage} 
+                      src="/images/service-web.jpg" 
                       alt="Création de Sites Web" 
                       width={600} 
                       height={400}
@@ -558,7 +553,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src={serviceEcommerceImage} 
+                      src="/images/service-ecommerce.jpg" 
                       alt="E-commerce" 
                       width={600} 
                       height={400}
@@ -619,7 +614,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src={serviceMarketingImage} 
+                      src="/images/service-marketing.jpg" 
                       alt="Marketing Digital" 
                       width={600} 
                       height={400}

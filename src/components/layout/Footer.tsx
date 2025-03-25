@@ -5,9 +5,6 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-// Import direct de l'image du logo
-import logoImage from '../../../public/images/logossfond.png';
-
 const Footer = () => {
   const [email, setEmail] = useState('');
   
@@ -40,7 +37,7 @@ const Footer = () => {
             >
               <Link href="/" className="block mb-6">
                 <Image 
-                  src={logoImage} 
+                  src="/images/logossfond.png" 
                   alt="Le Connecteur Digital" 
                   width={180} 
                   height={50} 
