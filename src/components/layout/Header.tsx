@@ -5,7 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import ButtonGlow from '@/components/ui/ButtonGlow';
+import ButtonGlow from '../ui/ButtonGlow';
+
+// Import direct de l'image du logo
+import logoImage from '../../../public/images/logossfond.png';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -148,7 +151,7 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="relative z-50">
             <Image 
-              src="/images/logossfond.png" 
+              src={logoImage} 
               alt="Le Connecteur Digital" 
               width={150} 
               height={40} 
@@ -253,7 +256,7 @@ const Header = () => {
             <div className="container mx-auto px-4 min-h-screen flex flex-col justify-center items-center py-20">
               <div className="flex flex-col items-center mb-8">
                 <Image 
-                  src="/images/logossfond.png" 
+                  src={logoImage} 
                   alt="Le Connecteur Digital" 
                   width={180} 
                   height={50} 
