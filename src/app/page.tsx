@@ -492,7 +492,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src="/images/service-web.jpg" 
+                      src="/images/services/service-web.jpg" 
                       alt="Création de Sites Web" 
                       width={600} 
                       height={400}
@@ -553,7 +553,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src="/images/service-ecommerce.jpg" 
+                      src="/images/services/service-ecommerce.jpg" 
                       alt="E-commerce" 
                       width={600} 
                       height={400}
@@ -614,7 +614,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src="/images/service-marketing.jpg" 
+                      src="/images/services/service-marketing.jpg" 
                       alt="Marketing Digital" 
                       width={600} 
                       height={400}
