@@ -233,10 +233,19 @@ export default function Home() {
           <motion.div 
             className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
             initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2, duration: 0.5 }}
+            animate={{ 
+              opacity: 1, 
+              y: [0, 8, 0] 
+            }}
+            transition={{ 
+              delay: 2, 
+              duration: 0.5,
+              y: {
+                repeat: Infinity,
+                duration: 2
+              }
+            }}
             whileHover={{ y: 5 }}
-            animate={{ y: [0, 8, 0], transition: { repeat: Infinity, duration: 2 } }}
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -333,7 +342,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Link 
-                    href="/pourquoi-un-site-web"
+                    href="/contact"
                     className="px-8 py-4 bg-transparent text-white font-bold rounded-full text-lg relative z-10 overflow-hidden border-2 border-white/30 backdrop-blur-sm inline-flex items-center gap-2 group-hover:border-white/50 transition-all duration-300"
                   >
                     <span className="relative z-10">Pourquoi un site web ?</span>
