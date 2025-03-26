@@ -36,7 +36,7 @@ const Footer = () => {
             >
               <Link href="/" className="block mb-6">
                 <img 
-                  src="/images/logossfond.png" 
+                  src="/logossfond.png" 
                   alt="Le Connecteur Digital" 
                   width={180} 
                   height={50} 

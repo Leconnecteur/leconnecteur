@@ -219,7 +219,7 @@ export default function Services() {
                 >
                   <div className="aspect-w-4 aspect-h-3">
                     <Image 
-                      src="/images/services/professional-website.jpg" 
+                      src="/professional-website.jpg" 
                       alt="Création de sites web" 
                       width={600} 
                       height={450}

@@ -128,7 +128,7 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="relative z-50">
             <img 
-              src="/images/logossfond.png" 
+              src="/logossfond.png" 
               alt="Le Connecteur Digital" 
               width={150} 
               height={40} 
@@ -232,7 +232,7 @@ const Header = () => {
             <div className="container mx-auto px-4 min-h-screen flex flex-col justify-center items-center py-20">
               <div className="flex flex-col items-center mb-8">
                 <img 
-                  src="/images/logossfond.png" 
+                  src="/logossfond.png" 
                   alt="Le Connecteur Digital" 
                   width={180} 
                   height={50} 
