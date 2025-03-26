@@ -324,9 +324,9 @@ export default function Home() {
             <ScrollAnimation delay={0.7}>
               <div className="mt-16 mb-24 text-center">
                 <motion.div
-                  className="relative inline-block group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  className="inline-block relative group"
                 >
                   <Link 
                     href="/contact"
@@ -479,7 +479,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src="/public/images/service-web.jpg" 
+                      src="/images/services/professional-website.jpg" 
                       alt="Création de Sites Web" 
                       width={600} 
                       height={400}
@@ -540,7 +540,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src="/public/images/service-ecommerce.jpg" 
+                      src="/images/services/service-ecommerce.jpg" 
                       alt="E-commerce" 
                       width={600} 
                       height={400}
@@ -601,7 +601,7 @@ export default function Home() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image 
-                      src="/public/images/service-marketing.jpg" 
+                      src="/images/services/service-marketing.jpg" 
                       alt="Marketing Digital" 
                       width={600} 
                       height={400}
