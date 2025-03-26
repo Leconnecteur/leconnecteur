@@ -38,7 +38,7 @@ const testimonials: Testimonial[] = [
     name: 'Hugo Fabre',
     role: 'Client',
     company: '',
-    content: `Je recommande Le connecteur Digital. Très professionnel, les résultats sont conformes à mes attentes et le relationnel est très bon. N'hésitez pas !`,
+    content: `Je recommande Le connecteur Digital. Très professionnel, les résultats sont conformes à mes attentes et le relationnel est très bon. N&apos;hésitez pas !`,
     rating: 5
   },
   {
@@ -54,7 +54,7 @@ const testimonials: Testimonial[] = [
     name: 'Mathieu Vasset',
     role: 'Client',
     company: '',
-    content: `Très bon contact, à l'écoute des besoins et avec de bonnes idées pour améliorer ma visibilité. Je recommande`,
+    content: `Très bon contact, à l&apos;écoute des besoins et avec de bonnes idées pour améliorer ma visibilité. Je recommande`,
     rating: 5
   }
 ];
@@ -337,7 +337,7 @@ export default function Testimonials() {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Prêt à rejoindre nos clients satisfaits ?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Contactez-nous dès aujourd'hui pour discuter de votre projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs.
+              Contactez-nous dès aujourd&apos;hui pour discuter de votre projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs.
             </p>
             
             <motion.div

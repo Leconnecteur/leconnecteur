@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -36,7 +35,7 @@ const Footer = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <Link href="/" className="block mb-6">
-                <Image 
+                <img 
                   src="/images/logossfond.png" 
                   alt="Le Connecteur Digital" 
                   width={180} 
@@ -45,7 +44,7 @@ const Footer = () => {
                 />
               </Link>
             </motion.div>
-            <p className="text-gray-400 mb-6 max-w-md">
+            <p className="text-gray-400 mb-4 max-w-md">
               Votre agence de création de sites internet, social ads et visuels pour entreprises. Nous connectons votre entreprise au monde digital.
             </p>
             <div className="flex space-x-4">
@@ -175,7 +174,7 @@ const Footer = () => {
                   type="submit"
                   className="w-full px-4 py-2 bg-transparent text-white font-medium rounded-md relative z-10 overflow-hidden border border-indigo-500/30 group-hover:border-indigo-500/50 transition-all duration-300"
                 >
-                  <span className="relative z-10">S'abonner</span>
+                  <span className="relative z-10">S&apos;abonner</span>
                   <span className="absolute inset-0 bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 opacity-30 group-hover:opacity-80 transition-opacity duration-300"></span>
                 </button>
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 rounded-md blur opacity-30 group-hover:opacity-100 transition duration-300 group-hover:duration-200"></div>
