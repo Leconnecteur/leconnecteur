@@ -45,13 +45,8 @@ const ContactSection = dynamic(() => import('@/components/sections/ContactSectio
   loading: () => <div className="h-[600px] w-full bg-black animate-pulse"></div>
 });
 
-const Parallax = dynamic(() => import('@/components/ui/Parallax'), { 
-  ssr: false 
-});
-
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [activeSection, setActiveSection] = useState<string | null>(null);
   
   // GSAP animations on page load
   useEffect(() => {
@@ -87,7 +82,6 @@ export default function Home() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
-          setActiveSection(id);
           
           // Animation spécifique pour la section visible
           gsap.to(entry.target, {

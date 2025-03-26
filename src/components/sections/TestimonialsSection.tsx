@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, PanInfo } from 'framer-motion';
+import { motion, PanInfo } from 'framer-motion';
 import { FaStar } from 'react-icons/fa';
 import dynamic from 'next/dynamic';
 
@@ -59,7 +59,7 @@ const TestimonialsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
-  const [direction, setDirection] = useState(0); // Pour l'animation de direction
+  const [direction, setDirection] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Détecter si on est sur mobile
@@ -155,29 +155,6 @@ const TestimonialsSection = () => {
     })
   };
 
-  // Effet de lueur pour les boutons sur mobile
-  const glowVariants = {
-    initial: { 
-      opacity: 0.3,
-      scale: 1,
-    },
-    animate: { 
-      opacity: [0.3, 0.6, 0.3],
-      scale: 1.05,
-      transition: {
-        opacity: {
-          repeat: Infinity,
-          duration: 2,
-          ease: "easeInOut"
-        },
-        scale: {
-          duration: 0.4,
-          ease: "easeOut"
-        }
-      }
-    }
-  };
-
   return (
     <section id="temoignages" className="py-8 pt-4 pb-0 md:py-12 md:pb-0 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
       {/* Cercles décoratifs */}
@@ -194,67 +171,65 @@ const TestimonialsSection = () => {
 
         <div className="relative max-w-4xl mx-auto">
           <div className="overflow-hidden">
-            <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div 
+              key={activeIndex}
+              custom={direction}
+              variants={testimonialVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              drag={isMobile ? "x" : false}
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.7}
+              onDragEnd={handleDragEnd}
+              className={`w-full px-4 ${isMobile ? 'cursor-grab active:cursor-grabbing' : ''}`}
+            >
               <motion.div 
-                key={activeIndex}
-                custom={direction}
-                variants={testimonialVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                drag={isMobile ? "x" : false}
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.7}
-                onDragEnd={handleDragEnd}
-                className={`w-full px-4 ${isMobile ? 'cursor-grab active:cursor-grabbing' : ''}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="backdrop-blur-lg bg-white/10 rounded-2xl p-8 border border-white/20 shadow-xl relative overflow-hidden"
+                whileTap={isMobile ? { scale: 0.98 } : undefined}
               >
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="backdrop-blur-lg bg-white/10 rounded-2xl p-8 border border-white/20 shadow-xl relative overflow-hidden"
-                  whileTap={isMobile ? { scale: 0.98 } : undefined}
-                >
-                  {/* Effet de lueur sur mobile pour le témoignage */}
-                  {isMobile && (
-                    <motion.div 
-                      className="absolute -inset-1 bg-gradient-to-r from-indigo-600/10 to-pink-600/10 rounded-2xl z-0"
-                      variants={{
-                        initial: { opacity: 0.1 },
-                        animate: { 
-                          opacity: [0.1, 0.2, 0.1],
-                          transition: {
-                            repeat: Infinity,
-                            duration: 3,
-                            ease: "easeInOut"
-                          }
+                {/* Effet de lueur sur mobile pour le témoignage */}
+                {isMobile && (
+                  <motion.div 
+                    className="absolute -inset-1 bg-gradient-to-r from-indigo-600/10 to-pink-600/10 rounded-2xl z-0"
+                    variants={{
+                      initial: { opacity: 0.1 },
+                      animate: { 
+                        opacity: [0.1, 0.2, 0.1],
+                        transition: {
+                          repeat: Infinity,
+                          duration: 3,
+                          ease: "easeInOut"
                         }
-                      }}
-                      initial="initial"
-                      animate="animate"
-                    />
-                  )}
-                  
-                  <div className="flex flex-col sm:flex-row sm:items-center mb-6 relative z-10">
-                    <div className="mb-4 sm:mb-0 sm:mr-4 flex justify-center">
-                      <PlaceholderAvatar name={testimonials[activeIndex].name} className="w-16 h-16 text-xl" />
-                    </div>
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-xl font-bold text-white">{testimonials[activeIndex].name}</h3>
-                      <p className="text-gray-300">{testimonials[activeIndex].role}
-                        {testimonials[activeIndex].company && `, ${testimonials[activeIndex].company}`}
-                      </p>
-                      <div className="mt-1">
-                        {renderStars(testimonials[activeIndex].rating)}
-                      </div>
+                      }
+                    }}
+                    initial="initial"
+                    animate="animate"
+                  />
+                )}
+                
+                <div className="flex flex-col sm:flex-row sm:items-center mb-6 relative z-10">
+                  <div className="mb-4 sm:mb-0 sm:mr-4 flex justify-center">
+                    <PlaceholderAvatar name={testimonials[activeIndex].name} className="w-16 h-16 text-xl" />
+                  </div>
+                  <div className="text-center sm:text-left">
+                    <h3 className="text-xl font-bold text-white">{testimonials[activeIndex].name}</h3>
+                    <p className="text-gray-300">{testimonials[activeIndex].role}
+                      {testimonials[activeIndex].company && `, ${testimonials[activeIndex].company}`}
+                    </p>
+                    <div className="mt-1">
+                      {renderStars(testimonials[activeIndex].rating)}
                     </div>
                   </div>
-                  <blockquote className="text-gray-200 italic text-lg leading-relaxed text-center sm:text-left relative z-10">
-                    "{testimonials[activeIndex].content}"
-                  </blockquote>
-                </motion.div>
+                </div>
+                <blockquote className="text-gray-200 italic text-lg leading-relaxed text-center sm:text-left relative z-10">
+                  "{testimonials[activeIndex].content}"
+                </blockquote>
               </motion.div>
-            </AnimatePresence>
+            </motion.div>
           </div>
 
           {/* Indicateurs */}
@@ -276,7 +251,17 @@ const TestimonialsSection = () => {
                 {isMobile && activeIndex === index && (
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-r from-indigo-600/60 to-pink-600/60 rounded-full z-0"
-                    variants={glowVariants}
+                    variants={{
+                      initial: { opacity: 0.1 },
+                      animate: { 
+                        opacity: [0.1, 0.2, 0.1],
+                        transition: {
+                          repeat: Infinity,
+                          duration: 3,
+                          ease: "easeInOut"
+                        }
+                      }
+                    }}
                     initial="initial"
                     animate="animate"
                   />
@@ -306,7 +291,17 @@ const TestimonialsSection = () => {
               {isMobile && (
                 <motion.div 
                   className="absolute inset-0 bg-gradient-to-r from-indigo-600/60 to-pink-600/60 z-0"
-                  variants={glowVariants}
+                  variants={{
+                    initial: { opacity: 0.1 },
+                    animate: { 
+                      opacity: [0.1, 0.2, 0.1],
+                      transition: {
+                        repeat: Infinity,
+                        duration: 3,
+                        ease: "easeInOut"
+                      }
+                    }
+                  }}
                   initial="initial"
                   animate="animate"
                 />
@@ -332,7 +327,17 @@ const TestimonialsSection = () => {
               {isMobile && (
                 <motion.div 
                   className="absolute inset-0 bg-gradient-to-r from-indigo-600/60 to-pink-600/60 z-0"
-                  variants={glowVariants}
+                  variants={{
+                    initial: { opacity: 0.1 },
+                    animate: { 
+                      opacity: [0.1, 0.2, 0.1],
+                      transition: {
+                        repeat: Infinity,
+                        duration: 3,
+                        ease: "easeInOut"
+                      }
+                    }
+                  }}
                   initial="initial"
                   animate="animate"
                 />
