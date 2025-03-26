@@ -2,17 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: false,
+    unoptimized: false, // Désactiver l'optimisation non optimisée
     domains: ['localhost', 'leconnecteur.vercel.app'],
-    path: '/_next/image/',
+    path: '/_next/image/', // Chemin par défaut pour les images optimisées
     minimumCacheTTL: 60,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'leconnecteur.vercel.app',
-        pathname: '/**',
-      },
-    ],
   },
   poweredByHeader: false,
   compiler: {
