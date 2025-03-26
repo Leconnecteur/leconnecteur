@@ -34,10 +34,6 @@ const ScrollAnimation = dynamic(() => import('@/components/ui/ScrollAnimation'),
   ssr: false 
 });
 
-const Parallax = dynamic(() => import('@/components/ui/Parallax'), { 
-  ssr: false 
-});
-
 // Import des nouvelles sections
 const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection'), {
   ssr: false,
@@ -47,6 +43,10 @@ const TestimonialsSection = dynamic(() => import('@/components/sections/Testimon
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection'), {
   ssr: false,
   loading: () => <div className="h-[600px] w-full bg-black animate-pulse"></div>
+});
+
+const Parallax = dynamic(() => import('@/components/ui/Parallax'), { 
+  ssr: false 
 });
 
 export default function Home() {

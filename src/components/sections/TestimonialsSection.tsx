@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import { FaStar } from 'react-icons/fa';
 import dynamic from 'next/dynamic';
@@ -51,7 +50,7 @@ const testimonials: Testimonial[] = [
     name: 'Mathieu Vasset',
     role: 'Client',
     company: '',
-    content: "Très bon contact, à l'écoute des besoins et à de bonnes idées afin d'améliorer ma visibilité. Je recommande",
+    content: "Très bon contact, à l'écoute des besoins et avec de bonnes idées pour améliorer ma visibilité. Je recommande",
     rating: 5
   }
 ];
