@@ -264,10 +264,11 @@ export default function WhyWebsite() {
                 Contactez-nous pour discuter de votre projet et obtenir un devis gratuit.
               </p>
               <ButtonGlow 
-                text="Créer mon site web"
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-lg text-xl font-bold text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-              />
+              >
+                Créer mon site web
+              </ButtonGlow>
             </motion.div>
           </div>
         </div>
