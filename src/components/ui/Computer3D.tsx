@@ -39,7 +39,7 @@ const Model: React.FC<ModelProps> = ({ onModelLoaded }) => {
         }
       },
       undefined,
-      (error: Error) => console.error('Error loading model:', error)
+      (error: unknown) => console.error('Error loading model:', error)
     );
   }, [onModelLoaded]);
 
