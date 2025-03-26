@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaStar } from 'react-icons/fa';
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 const PlaceholderAvatar = dynamic(() => import('@/components/ui/PlaceholderAvatar'), {
@@ -31,7 +30,7 @@ const testimonials: Testimonial[] = [
     name: 'Fabien Segas',
     role: 'Client',
     company: 'QMI',
-    content: "Je suis très satisfait du travail de Geremy en tant que concepteur de site web. Il a rapidement cerné mes besoins et a su y répondre de manière efficace. Le résultat est à la hauteur de mes attentes, et le projet a été réalisé dans des délais très courts. Je le recommande sans hésitation !",
+    content: `Je suis très satisfait du travail de Geremy en tant que concepteur de site web. Il a rapidement cerné mes besoins et a su y répondre de manière efficace. Le résultat est à la hauteur de mes attentes, et le projet a été réalisé dans des délais très courts. Je le recommande sans hésitation !`,
     rating: 5
   },
   {
@@ -39,7 +38,7 @@ const testimonials: Testimonial[] = [
     name: 'Hugo Fabre',
     role: 'Client',
     company: '',
-    content: "Je recommande Le connecteur Digital. Très professionnel, résultats correspondants à mes attentes et très bon relationnel. Ne pas hésiter !!",
+    content: `Je recommande Le connecteur Digital. Très professionnel, résultats correspondants à mes attentes et très bon relationnel. Ne pas hésiter !!`,
     rating: 5
   },
   {
@@ -47,7 +46,7 @@ const testimonials: Testimonial[] = [
     name: 'Clement Petrau',
     role: 'Client',
     company: '',
-    content: "Je recommande",
+    content: `Je recommande`,
     rating: 5
   },
   {
@@ -55,7 +54,7 @@ const testimonials: Testimonial[] = [
     name: 'Mathieu Vasset',
     role: 'Client',
     company: '',
-    content: "Très bon contact, à l'écoute des besoins et à de bonnes idées afin d'améliorer ma visibilité. Je recommande",
+    content: `Très bon contact, à l'écoute des besoins et à de bonnes idées afin d'améliorer ma visibilité. Je recommande`,
     rating: 5
   }
 ];
@@ -230,7 +229,7 @@ export default function Testimonials() {
                               className="relative"
                             >
                               <svg className="absolute -top-2 -left-2 w-8 h-8 text-blue-500/70" fill="currentColor" viewBox="0 0 32 32">
-                                <path d="M10 8c-2.2 0-4 1.8-4 4v10c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4v-6.4c0-1.3-0.8-2.4-2-2.8v-1.6c0-2.2-1.8-4-4-4h-8zM10 10h8c1.1 0 2 0.9 2 2v1.6c-0.6-0.3-1.3-0.4-2-0.4h-8c-0.7 0-1.4 0.1-2 0.4v-1.6c0-1.1 0.9-2 2-2zM8 15.6c0.6-0.3 1.3-0.4 2-0.4h8c1.1 0 2 0.9 2 2v6.4c0 1.1-0.9 2-2 2h-10c-1.1 0-2-0.9-2-2v-6.4c0-0.7 0.1-1.4 0.4-2 0.3 0.3 0.6 0.4 1 0.4 0.8 0 1.4-0.6 1.4-1.4 0-0.4-0.2-0.7-0.4-1 0.2 0 0.4 0 0.6 0z"></path>
+                                <path d="M10 8c-2.2 0-4 1.8-4 4v10c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4v-6.4c0-1.3-0.8-2.4-2-2.8v-1.6c0-2.2-1.8-4-4-4h-8zM10 10h8c1.1 0 2 0.9 2 2v1.6c-0.6-0.3-1.3-0.4-2-0.4h-8c-0.7 0-1.4 0.1-2 0.4v1.6c0 1.1 0.9 2 2 2zM8 15.6c0.6-0.3 1.3-0.4 2-0.4h8c1.1 0 2 0.9 2 2v6.4c0 1.1-0.9 2-2 2h-10c-1.1 0-2-0.9-2-2v-6.4c0-0.7 0.1-1.4 0.4-2 0.3 0.3 0.6 0.4 1 0.4 0.8 0 1.4-0.6 1.4-1.4 0-0.4-0.2-0.7-0.4-1 0.2 0 0.4 0 0.6 0z"></path>
                               </svg>
                               <p className="text-gray-300 italic pl-6 leading-relaxed">{testimonial.content}</p>
                             </motion.div>

@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ResponsiveCarousel from '@/components/ui/ResponsiveCarousel';
 import ButtonGlow from '@/components/ui/ButtonGlow';
