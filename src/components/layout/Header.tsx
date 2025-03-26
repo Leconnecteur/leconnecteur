@@ -98,7 +98,6 @@ const Header = () => {
     }
   };
 
-  // Effet de lueur pour les boutons sur mobile
   const glowVariants = {
     initial: { 
       opacity: 0.3,
