@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 interface TypewriterTextProps {
   text: string;
@@ -72,7 +72,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   }, [currentIndex, isTyping, onComplete, speed, text]);
 
   // Variantes pour l'animation du curseur
-  const cursorVariants = {
+  const cursorVariants: Variants = {
     blinking: {
       opacity: [0, 1],
       transition: {
