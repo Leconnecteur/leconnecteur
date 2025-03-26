@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
     name: 'Hugo Fabre',
     role: 'Client',
     company: '',
-    content: `Je recommande Le connecteur Digital. Très professionnel, les résultats sont conformes à mes attentes et le relationnel est très bon. N&apos;hésitez pas !`,
+    content: `Je recommande Le connecteur Digital. Très professionnel, résultats correspondants à mes attentes et très bon relationnel. N&apos;hésitez pas !`,
     rating: 5
   },
   {
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
     name: 'Clement Petrau',
     role: 'Client',
     company: '',
-    content: `Je le recommande`,
+    content: `J&apos;ai beaucoup aimé.`,
     rating: 5
   },
   {

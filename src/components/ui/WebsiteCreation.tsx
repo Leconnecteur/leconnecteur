@@ -7,7 +7,6 @@ import { gsap } from 'gsap';
 const WebsiteCreation = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const desktopRef = useRef<HTMLDivElement>(null);
-  const mobileRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   
   useEffect(() => {
@@ -22,13 +21,6 @@ const WebsiteCreation = () => {
       { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }
     );
     
-    // Animation du site mobile - apparaît après le desktop
-    tl.fromTo(mobileRef.current,
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
-      "-=0.4" // Commence un peu avant que l'animation du desktop soit terminée
-    );
-    
     // Animation des éléments de design - apparaissent progressivement
     const designElements = containerRef.current.querySelectorAll('.design-element');
     designElements.forEach((element, index) => {
@@ -41,21 +33,6 @@ const WebsiteCreation = () => {
           ease: 'back.out(1.7)'
         },
         "-=0.2" // Chaque élément apparaît légèrement avant que l'animation précédente soit terminée
-      );
-    });
-    
-    // Animation des éléments de code - apparaissent lettre par lettre
-    const codeElements = containerRef.current.querySelectorAll('.code-element');
-    codeElements.forEach((element, index) => {
-      tl.fromTo(element, 
-        { opacity: 0, x: -10 },
-        { 
-          opacity: 1, 
-          x: 0, 
-          duration: 0.3, 
-          ease: 'power2.out'
-        },
-        "-=0.1" // Chaque ligne apparaît légèrement avant que l'animation précédente soit terminée
       );
     });
     
@@ -85,31 +62,6 @@ const WebsiteCreation = () => {
         }
       );
     });
-    
-    // Animation des notifications qui apparaissent
-    const notifications = containerRef.current.querySelectorAll('.notification');
-    notifications.forEach((notification, index) => {
-      gsap.fromTo(notification,
-        { y: -20, opacity: 0 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.5, 
-          delay: 3 + (index * 1.5),
-          ease: 'back.out(1.7)',
-          onComplete: () => {
-            // Disparaît après quelques secondes
-            gsap.to(notification, {
-              y: -20,
-              opacity: 0,
-              duration: 0.5,
-              delay: 2,
-              ease: 'power2.in'
-            });
-          }
-        }
-      );
-    });
   }, []);
   
   // Effet d'animation supplémentaire lors du survol
@@ -134,15 +86,6 @@ const WebsiteCreation = () => {
       });
     };
   }, [isHovered]);
-  
-  // Éléments de code pour l'animation
-  const codeElements = [
-    '<div className="hero">',
-    '  <h1>Le Connecteur Digital</h1>',
-    '  <p>Des sites qui convertissent</p>',
-    '  <Button>Créer mon site</Button>',
-    '</div>'
-  ];
   
   return (
     <div 
@@ -200,129 +143,11 @@ const WebsiteCreation = () => {
               <div className="w-full h-2 bg-gray-500/30 rounded mb-1 building-element"></div>
               <div className="w-2/3 h-2 bg-gray-500/30 rounded building-element"></div>
             </div>
-            <div className="h-12 bg-gray-700/30 rounded p-2 hover-animate">
-              <div className="w-full h-2 bg-gray-500/30 rounded mb-1 building-element"></div>
-              <div className="w-2/3 h-2 bg-gray-500/30 rounded building-element"></div>
-            </div>
-            <div className="h-12 bg-gray-700/30 rounded p-2 hover-animate">
-              <div className="w-full h-2 bg-gray-500/30 rounded mb-1 building-element"></div>
-              <div className="w-2/3 h-2 bg-gray-500/30 rounded building-element"></div>
-            </div>
-          </div>
-          
-          {/* Cursor */}
-          <div className="cursor absolute w-3 h-3 bg-white rounded-full opacity-70"></div>
-          
-          {/* Notification de succès */}
-          <div className="notification absolute top-12 right-4 bg-green-500/80 text-white text-xs py-1 px-2 rounded shadow-lg">
-            ✓ Élément créé
-          </div>
-          
-          {/* Notification d'information */}
-          <div className="notification absolute top-24 right-4 bg-blue-500/80 text-white text-xs py-1 px-2 rounded shadow-lg">
-            ℹ️ Mise à jour disponible
-          </div>
-          
-          {/* Elements being created */}
-          <div className="absolute bottom-4 right-4 w-32 h-20 bg-gray-800/80 backdrop-blur-sm rounded border border-gray-700 p-2">
-            <div className="text-[8px] font-mono text-gray-300 overflow-hidden">
-              {codeElements.map((line, index) => (
-                <div key={index} className="code-element whitespace-nowrap">
-                  {line}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
-      </motion.div>
-      
-      {/* Téléphone mobile */}
-      <motion.div 
-        ref={mobileRef}
-        className="absolute right-10 bottom-20 z-20 bg-gray-800 rounded-2xl shadow-2xl overflow-hidden w-[120px] h-[220px] border-4 border-gray-700 transform rotate-6"
-        whileHover={{ scale: 1.05, rotate: 0 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-      >
-        {/* Encoche */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-5 bg-black rounded-b-xl z-10"></div>
-        
-        {/* Contenu du site mobile */}
-        <div className="relative h-full bg-gradient-to-br from-gray-900 to-blue-900 pt-6 p-2 overflow-hidden">
-          {/* Header */}
-          <div className="design-element bg-gray-800/50 h-4 w-full rounded mb-2"></div>
-          
-          {/* Hero section */}
-          <div className="design-element h-16 w-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-lg mb-2 p-1">
-            <div className="w-full h-3 bg-white/30 rounded mb-1 building-element"></div>
-            <div className="w-4/5 h-2 bg-white/20 rounded mb-1 building-element"></div>
-            <div className="w-1/3 h-3 bg-blue-500/40 rounded building-element"></div>
-          </div>
-          
-          {/* Content sections */}
-          <div className="design-element space-y-1.5">
-            <div className="h-8 bg-gray-700/30 rounded p-1 hover-animate">
-              <div className="w-full h-1 bg-gray-500/30 rounded mb-0.5 building-element"></div>
-              <div className="w-2/3 h-1 bg-gray-500/30 rounded building-element"></div>
-            </div>
-            <div className="h-8 bg-gray-700/30 rounded p-1 hover-animate">
-              <div className="w-full h-1 bg-gray-500/30 rounded mb-0.5 building-element"></div>
-              <div className="w-2/3 h-1 bg-gray-500/30 rounded building-element"></div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-      
-      {/* Éléments flottants */}
-      <motion.div 
-        className="absolute top-10 left-10 z-0 w-20 h-20 bg-blue-500/10 rounded-lg border border-blue-500/20 backdrop-blur-sm transform -rotate-6 animate-float-slow"
-        whileHover={{ scale: 1.1, rotate: 0 }}
-      ></motion.div>
-      <motion.div 
-        className="absolute bottom-10 right-40 z-0 w-16 h-16 bg-purple-500/10 rounded-full border border-purple-500/20 backdrop-blur-sm animate-float-slow animation-delay-1000"
-        whileHover={{ scale: 1.1 }}
-      ></motion.div>
-      
-      {/* Éléments de design */}
-      <motion.div 
-        className="absolute top-1/4 right-1/4 z-0 w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/30 to-purple-500/30 animate-pulse"
-        whileHover={{ scale: 1.5 }}
-      ></motion.div>
-      <motion.div 
-        className="absolute bottom-1/3 left-1/3 z-0 w-6 h-6 rounded-full bg-gradient-to-r from-pink-500/30 to-purple-500/30 animate-pulse animation-delay-500"
-        whileHover={{ scale: 1.5 }}
-      ></motion.div>
-      
-      {/* Outils de design flottants */}
-      <motion.div 
-        className="absolute top-20 right-0 z-0 bg-gray-800/70 backdrop-blur-sm rounded-lg border border-gray-700 p-2 shadow-lg transform rotate-3 w-24 h-auto"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 2, duration: 0.5 }}
-        whileHover={{ scale: 1.05, rotate: 0 }}
-      >
-        <div className="flex flex-col space-y-2">
-          <div className="w-full h-3 bg-blue-500/30 rounded"></div>
-          <div className="w-full h-3 bg-purple-500/30 rounded"></div>
-          <div className="w-full h-3 bg-pink-500/30 rounded"></div>
-          <div className="w-full h-3 bg-yellow-500/30 rounded"></div>
-        </div>
-      </motion.div>
-      
-      {/* Palette de couleurs */}
-      <motion.div 
-        className="absolute bottom-10 left-0 z-0 bg-gray-800/70 backdrop-blur-sm rounded-lg border border-gray-700 p-2 shadow-lg transform -rotate-3 flex gap-2"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 2.5, duration: 0.5 }}
-        whileHover={{ scale: 1.05, rotate: 0 }}
-      >
-        <div className="w-4 h-4 rounded-full bg-blue-500"></div>
-        <div className="w-4 h-4 rounded-full bg-purple-500"></div>
-        <div className="w-4 h-4 rounded-full bg-pink-500"></div>
-        <div className="w-4 h-4 rounded-full bg-yellow-500"></div>
       </motion.div>
     </div>
   );
-};
+}
 
 export default WebsiteCreation;
