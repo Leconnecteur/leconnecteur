@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
 
 interface Computer3DProps {
@@ -22,7 +22,7 @@ const Model: React.FC<ModelProps> = ({ onModelLoaded }) => {
   useEffect(() => {
     loader.load(
       '/models/computer.glb',
-      (gltf: { scene: THREE.Scene }) => {
+      (gltf: GLTF) => {
         if (group.current) {
           group.current.add(gltf.scene);
           // Ajuster la taille du modèle
