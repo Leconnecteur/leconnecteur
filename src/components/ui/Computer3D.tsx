@@ -5,7 +5,12 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, ContactShadows, OrbitControls } from '@react-three/drei';
 import { Vector3, Group } from 'three';
 
-function Model(props: { scale?: number[] }) {
+interface ModelProps {
+  position?: [number, number, number];
+  scale?: [number, number, number];
+}
+
+function Model({ position = [0, 0, 0], scale = [1, 1, 1] }: ModelProps) {
   const group = useRef<Group>(null);
   
   useFrame((state) => {
@@ -17,7 +22,7 @@ function Model(props: { scale?: number[] }) {
   });
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} position={position} scale={scale} dispose={null}>
       {/* Base of laptop */}
       <mesh 
         castShadow 

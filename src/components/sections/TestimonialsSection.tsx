@@ -96,7 +96,7 @@ const TestimonialsSection = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [autoPlayEnabled]);
+  }, [autoPlayEnabled, testimonials.length]);
 
   // Pause auto-play when user interacts with carousel
   const pauseAutoPlay = () => {
@@ -200,154 +200,60 @@ const TestimonialsSection = () => {
                       animate: { 
                         opacity: [0.1, 0.2, 0.1],
                         transition: {
-                          repeat: Infinity,
-                          duration: 3,
-                          ease: "easeInOut"
+                          duration: 2,
+                          repeat: Infinity
                         }
                       }
                     }}
-                    initial="initial"
                     animate="animate"
                   />
                 )}
-                
-                <div className="flex flex-col sm:flex-row sm:items-center mb-6 relative z-10">
-                  <div className="mb-4 sm:mb-0 sm:mr-4 flex justify-center">
-                    <PlaceholderAvatar name={testimonials[activeIndex].name} className="w-16 h-16 text-xl" />
-                  </div>
-                  <div className="text-center sm:text-left">
-                    <h3 className="text-xl font-bold text-white">{testimonials[activeIndex].name}</h3>
-                    <p className="text-gray-300">{testimonials[activeIndex].role}
-                      {testimonials[activeIndex].company && `, ${testimonials[activeIndex].company}`}
-                    </p>
-                    <div className="mt-1">
+
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
+                        <PlaceholderAvatar name={testimonials[activeIndex].name} className="w-12 h-12" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-white">{testimonials[activeIndex].name}</h3>
+                        <p className="text-gray-400">{testimonials[activeIndex].role}</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-1">
                       {renderStars(testimonials[activeIndex].rating)}
                     </div>
                   </div>
+                  <p className="text-gray-300 leading-relaxed">
+                    {testimonials[activeIndex].content}
+                  </p>
+                  {testimonials[activeIndex].company && (
+                    <p className="mt-4 text-sm text-gray-400">{testimonials[activeIndex].company}</p>
+                  )}
                 </div>
-                <blockquote className="text-gray-200 italic text-lg leading-relaxed text-center sm:text-left relative z-10">
-                  "{testimonials[activeIndex].content}"
-                </blockquote>
               </motion.div>
             </motion.div>
-          </div>
 
-          {/* Indicateurs */}
-          <div className="flex justify-center mt-8">
-            {testimonials.map((_, index) => (
-              <motion.button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`relative overflow-hidden mx-1 rounded-full transition-all duration-300 ${
-                  activeIndex === index 
-                    ? 'bg-gradient-to-r from-sky-500 to-purple-500 w-8 h-3' 
-                    : 'bg-gray-500/70 w-3 h-3'
-                }`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                aria-label={`Aller au témoignage ${index + 1}`}
-              >
-                {/* Effet de lueur sur mobile pour l'indicateur actif */}
-                {isMobile && activeIndex === index && (
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-indigo-600/60 to-pink-600/60 rounded-full z-0"
-                    variants={{
-                      initial: { opacity: 0.1 },
-                      animate: { 
-                        opacity: [0.1, 0.2, 0.1],
-                        transition: {
-                          repeat: Infinity,
-                          duration: 3,
-                          ease: "easeInOut"
-                        }
-                      }
-                    }}
-                    initial="initial"
-                    animate="animate"
-                  />
-                )}
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Boutons de navigation */}
-          <div className="flex justify-center mt-6 md:justify-between md:mt-0 md:absolute md:inset-x-0 md:top-1/2 md:-translate-y-1/2">
-            <motion.button
-              onClick={() => {
-                pauseAutoPlay();
-                setDirection(-1);
-                setActiveIndex(activeIndex === 0 ? testimonials.length - 1 : activeIndex - 1);
-              }}
-              className="relative group w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full mx-2 md:mx-0 md:-ml-5 overflow-hidden"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Témoignage précédent"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative z-10">
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-              
-              {/* Effet de lueur sur mobile */}
-              {isMobile && (
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-indigo-600/60 to-pink-600/60 z-0"
-                  variants={{
-                    initial: { opacity: 0.1 },
-                    animate: { 
-                      opacity: [0.1, 0.2, 0.1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 3,
-                        ease: "easeInOut"
-                      }
-                    }
-                  }}
-                  initial="initial"
-                  animate="animate"
-                />
-              )}
-            </motion.button>
-            
-            <motion.button
-              onClick={() => {
-                pauseAutoPlay();
-                setDirection(1);
-                setActiveIndex((activeIndex + 1) % testimonials.length);
-              }}
-              className="relative group w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full mx-2 md:mx-0 md:-mr-5 overflow-hidden"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Témoignage suivant"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative z-10">
-                <path d="M9 18l6-6-6-6" />
-              </svg>
-              
-              {/* Effet de lueur sur mobile */}
-              {isMobile && (
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-indigo-600/60 to-pink-600/60 z-0"
-                  variants={{
-                    initial: { opacity: 0.1 },
-                    animate: { 
-                      opacity: [0.1, 0.2, 0.1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 3,
-                        ease: "easeInOut"
-                      }
-                    }
-                  }}
-                  initial="initial"
-                  animate="animate"
-                />
-              )}
-            </motion.button>
+            {/* Navigation dots */}
+            <div className="flex justify-center mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 mx-2 rounded-full transition-all duration-300 ${
+                    activeIndex === index 
+                      ? 'bg-gradient-to-r from-blue-400 to-blue-600 w-8' 
+                      : 'bg-gray-600 hover:bg-gray-500'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                ></button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default TestimonialsSection;
