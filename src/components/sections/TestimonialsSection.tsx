@@ -56,19 +56,17 @@ const TestimonialsSection = () => {
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Détecter si on est sur mobile
   useEffect(() => {
-    const checkMobile = () => {
+    const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Fonction pour générer les étoiles en fonction de la note
   const renderStars = (rating: number) => {
     return Array(5).fill(0).map((_, i) => (
       <FaStar 
@@ -78,7 +76,6 @@ const TestimonialsSection = () => {
     ));
   };
 
-  // Navigation automatique
   useEffect(() => {
     if (!autoPlayEnabled) return;
     
@@ -91,22 +88,17 @@ const TestimonialsSection = () => {
     };
   }, [autoPlayEnabled]);
 
-  // Pause auto-play when user interacts with carousel
   const pauseAutoPlay = () => {
     setAutoPlayEnabled(false);
-    // Resume after 10 seconds of inactivity
     setTimeout(() => setAutoPlayEnabled(true), 10000);
   };
 
-  // Gestion du drag avec Framer Motion
   const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     pauseAutoPlay();
     
     if (info.offset.x > 100) {
-      // Swipe droite
       setActiveIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
     } else if (info.offset.x < -100) {
-      // Swipe gauche
       setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }
   };
@@ -116,7 +108,6 @@ const TestimonialsSection = () => {
     setActiveIndex(index);
   };
 
-  // Variants d'animation pour les témoignages
   const testimonialVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 300 : -300,
@@ -147,7 +138,6 @@ const TestimonialsSection = () => {
 
   return (
     <section id="temoignages" className="py-8 pt-4 pb-0 md:py-12 md:pb-0 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
-      {/* Cercles décoratifs */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-purple-600 rounded-full filter blur-3xl opacity-20"></div>
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-blue-600 rounded-full filter blur-3xl opacity-20"></div>
       
@@ -181,7 +171,6 @@ const TestimonialsSection = () => {
                 className="backdrop-blur-lg bg-white/10 rounded-2xl p-8 border border-white/20 shadow-xl relative overflow-hidden"
                 whileTap={isMobile ? { scale: 0.98 } : undefined}
               >
-                {/* Effet de lueur sur mobile pour le témoignage */}
                 {isMobile && (
                   <motion.div 
                     className="absolute -inset-1 bg-gradient-to-r from-indigo-600/10 to-pink-600/10 rounded-2xl z-0"
@@ -228,7 +217,6 @@ const TestimonialsSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* Navigation dots */}
             <div className="flex justify-center mt-8">
               {testimonials.map((_, index) => (
                 <button
