@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import ButtonGlow from '@/components/ui/ButtonGlow';
@@ -128,13 +127,12 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="relative z-50">
-            <Image 
+            <img 
               src="/images/logossfond.png" 
               alt="Le Connecteur Digital" 
               width={150} 
               height={40} 
               className="h-12 w-auto"
-              priority
             />
           </Link>
 
@@ -233,13 +231,12 @@ const Header = () => {
           >
             <div className="container mx-auto px-4 min-h-screen flex flex-col justify-center items-center py-20">
               <div className="flex flex-col items-center mb-8">
-                <Image 
+                <img 
                   src="/images/logossfond.png" 
                   alt="Le Connecteur Digital" 
                   width={180} 
                   height={50} 
                   className="h-16 w-auto mb-4"
-                  priority
                 />
               </div>
               <nav className="flex flex-col items-center space-y-8 py-8">

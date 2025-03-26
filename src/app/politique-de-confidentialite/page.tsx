@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 
 const ScrollAnimation = dynamic(() => import('@/components/ui/ScrollAnimation'), { 
   ssr: false 
@@ -161,12 +160,12 @@ export default function PolitiqueConfidentialite() {
             </ScrollAnimation>
             
             <div className="mt-12 text-center">
-              <Link 
+              <a 
                 href="/mentions-legales" 
                 className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Voir nos mentions légales
-              </Link>
+              </a>
             </div>
           </div>
         </div>
