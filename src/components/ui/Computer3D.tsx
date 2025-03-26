@@ -3,17 +3,13 @@
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, ContactShadows, OrbitControls } from '@react-three/drei';
-import { Vector3 } from 'three';
+import { Vector3, Group } from 'three';
 
-function Model(props: any) {
-  const group = useRef<any>();
-  // Simplified model for performance - in production you'd use a real 3D model
-  // This is a placeholder that creates a simple laptop-like shape
+function Model(props: { scale?: number[] }) {
+  const group = useRef<Group>(null);
   
-  // @ts-ignore - Ignorer l'erreur TypeScript pour préserver le comportement visuel exact
   useFrame((state) => {
     if (group.current) {
-      // Reduce animation complexity for better performance
       const time = state.clock.getElapsedTime();
       group.current.rotation.y = Math.sin(time * 0.2) * 0.15;
       group.current.rotation.x = Math.sin(time * 0.15) * 0.05;
@@ -135,9 +131,9 @@ export default function Computer3D() {
         <pointLight position={[-5, -5, -5]} intensity={0.5} />
         
         <Model 
-            position={[0, isMobile ? -0.8 : -1, 0]} 
-            scale={[isMobile ? 0.6 : 0.8, isMobile ? 0.6 : 0.8, isMobile ? 0.6 : 0.8]} 
-          />
+          position={[0, isMobile ? -0.8 : -1, 0]} 
+          scale={[isMobile ? 0.6 : 0.8, isMobile ? 0.6 : 0.8, isMobile ? 0.6 : 0.8]} 
+        />
         
         <ContactShadows 
           rotation-x={Math.PI / 2}
