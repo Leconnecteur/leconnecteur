@@ -8,11 +8,6 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 
 // Chargement dynamique des composants pour éviter les erreurs d'hydratation
-const AnimatedText = dynamic(() => import('@/components/ui/AnimatedText'), { 
-  ssr: false,
-  loading: () => <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Des sites internet qui <span className="text-blue-400">donnent envie</span> de cliquer.</div>
-});
-
 const TypewriterText = dynamic(() => import('@/components/ui/TypewriterText'), { 
   ssr: false,
   loading: () => <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Créez une <span className="text-blue-400">présence digitale</span> qui vous démarque.</div>
@@ -81,8 +76,6 @@ export default function Home() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          
           // Animation spécifique pour la section visible
           gsap.to(entry.target, {
             y: 0,
