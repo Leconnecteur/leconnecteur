@@ -114,7 +114,7 @@ const Footer = () => {
                 { href: '/realisations', label: 'Réalisations' },
                 { href: '/temoignages', label: 'Témoignages' },
                 { href: '/contact', label: 'Contact' }
-              ].map((link, index) => (
+              ].map((link) => (
                 <motion.li key={link.href} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors group flex items-center">
                     <span className="w-0 h-0.5 bg-gradient-to-r from-sky-500 to-indigo-500 mr-0 opacity-0 group-hover:w-3 group-hover:mr-2 group-hover:opacity-100 transition-all duration-300"></span>
