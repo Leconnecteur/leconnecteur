@@ -3,11 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, PanInfo } from 'framer-motion';
 import { FaStar } from 'react-icons/fa';
-import dynamic from 'next/dynamic';
-
-const PlaceholderAvatar = dynamic(() => import('@/components/ui/PlaceholderAvatar'), {
-  ssr: false
-});
 
 // Type pour les témoignages
 interface Testimonial {
@@ -96,7 +91,7 @@ const TestimonialsSection = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [autoPlayEnabled, testimonials.length]);
+  }, [autoPlayEnabled]);
 
   // Pause auto-play when user interacts with carousel
   const pauseAutoPlay = () => {
@@ -213,7 +208,11 @@ const TestimonialsSection = () => {
                   <div className="flex justify-between items-start mb-6">
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                        <PlaceholderAvatar name={testimonials[activeIndex].name} className="w-12 h-12" />
+                        <img 
+                          src={`https://ui-avatars.com/api/?name=${testimonials[activeIndex].name}&size=128&background=ffffff&color=000000`} 
+                          alt={testimonials[activeIndex].name} 
+                          className="w-12 h-12"
+                        />
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-white">{testimonials[activeIndex].name}</h3>

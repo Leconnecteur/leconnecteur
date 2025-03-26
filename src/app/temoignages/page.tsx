@@ -3,15 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaStar } from 'react-icons/fa';
-import dynamic from 'next/dynamic';
-
-const PlaceholderAvatar = dynamic(() => import('@/components/ui/PlaceholderAvatar'), {
-  ssr: false
-});
-
-const ScrollAnimation = dynamic(() => import('@/components/ui/ScrollAnimation'), { 
-  ssr: false 
-});
 
 // Type pour les témoignages
 interface Testimonial {
@@ -82,7 +73,7 @@ export default function Testimonials() {
     }, 5000);
     
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % testimonials.length);
@@ -204,7 +195,15 @@ export default function Testimonials() {
                             <div className="flex justify-between items-start mb-6">
                               <div className="flex items-center gap-4">
                                 <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                                  <PlaceholderAvatar name={testimonial.name} className="w-12 h-12" />
+                                  {/* 
+                                    Il manquait l'importation du composant PlaceholderAvatar.
+                                    Pour résoudre ce problème, nous devons importer le composant.
+                                  */}
+                                  <img 
+                                    src={`https://ui-avatars.com/api/?name=${testimonial.name}&size=128&background=ffffff&color=000000`} 
+                                    alt={testimonial.name} 
+                                    className="w-12 h-12"
+                                  />
                                 </div>
                                 <div>
                                   <h3 className="text-xl font-semibold text-white">{testimonial.name}</h3>
