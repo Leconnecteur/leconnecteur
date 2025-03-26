@@ -195,10 +195,6 @@ export default function Testimonials() {
                             <div className="flex justify-between items-start mb-6">
                               <div className="flex items-center gap-4">
                                 <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                                  {/* 
-                                    Il manquait l'importation du composant PlaceholderAvatar.
-                                    Pour résoudre ce problème, nous devons importer le composant.
-                                  */}
                                   <img 
                                     src={`https://ui-avatars.com/api/?name=${testimonial.name}&size=128&background=ffffff&color=000000`} 
                                     alt={testimonial.name} 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, ReactNode } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface ScrollAnimationProps {
   children: ReactNode;

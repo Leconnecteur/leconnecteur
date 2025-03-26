@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
     name: 'Hugo Fabre',
     role: 'Client',
     company: '',
-    content: "Je recommande Le connecteur Digital. Très professionnel, résultats correspondants à mes attentes et très bon relationnel. Ne pas hésiter !!",
+    content: "Je recommande Le connecteur Digital. Très professionnel, résultats correspondants à mes attentes et très bon relationnel. N&apos;hésitez pas !",
     rating: 5
   },
   {
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
     name: 'Clement Petrau',
     role: 'Client',
     company: '',
-    content: "Je recommande",
+    content: "J&apos;ai beaucoup aimé.",
     rating: 5
   },
   {
@@ -45,7 +45,7 @@ const testimonials: Testimonial[] = [
     name: 'Mathieu Vasset',
     role: 'Client',
     company: '',
-    content: "Très bon contact, à l'écoute des besoins et avec de bonnes idées pour améliorer ma visibilité. Je recommande",
+    content: "Très bon contact, à l&apos;écoute des besoins et avec de bonnes idées pour améliorer ma visibilité. Je recommande",
     rating: 5
   }
 ];
@@ -54,7 +54,6 @@ const TestimonialsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
-  const [direction, setDirection] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Détecter si on est sur mobile
@@ -84,7 +83,6 @@ const TestimonialsSection = () => {
     if (!autoPlayEnabled) return;
     
     intervalRef.current = setInterval(() => {
-      setDirection(1);
       setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 5000);
 
@@ -106,18 +104,15 @@ const TestimonialsSection = () => {
     
     if (info.offset.x > 100) {
       // Swipe droite
-      setDirection(-1);
       setActiveIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
     } else if (info.offset.x < -100) {
       // Swipe gauche
-      setDirection(1);
       setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }
   };
 
   const goToSlide = (index: number) => {
     pauseAutoPlay();
-    setDirection(index > activeIndex ? 1 : -1);
     setActiveIndex(index);
   };
 
@@ -168,7 +163,7 @@ const TestimonialsSection = () => {
           <div className="overflow-hidden">
             <motion.div 
               key={activeIndex}
-              custom={direction}
+              custom={activeIndex}
               variants={testimonialVariants}
               initial="enter"
               animate="center"
