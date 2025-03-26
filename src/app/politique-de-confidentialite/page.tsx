@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -10,12 +10,6 @@ const ScrollAnimation = dynamic(() => import('@/components/ui/ScrollAnimation'),
 });
 
 export default function PolitiqueConfidentialite() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
       {/* Hero Section avec titre animé */}
