@@ -9,7 +9,6 @@ import ButtonGlow from '@/components/ui/ButtonGlow';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
@@ -37,23 +36,6 @@ const Header = () => {
       document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
-
-  // Détecter le scroll pour changer l'apparence du header
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
